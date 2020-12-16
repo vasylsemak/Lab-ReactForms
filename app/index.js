@@ -2,8 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 class Form extends React.Component {
+  constructor() {
+    super();
 
-  submitHandler(event) {
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
     event.preventDefault();
     const username = event.target.username.value;
     console.log('username ->', username);
@@ -15,7 +20,7 @@ class Form extends React.Component {
         <div id='navbar'>
           Form.js
         </div>
-        <form onSubmit={this.submitHandler}>
+        <form onSubmit={this.handleSubmit}>
           <label htmlFor='username'>Username:</label>
           <input type='text' name='username' />
           <button type='submit'>Submit</button>
